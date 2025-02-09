@@ -15,6 +15,14 @@ services:
     networks:
       - spring-lms
 
+  rabbitmq:
+    image: rabbitmq:4.0.5-management-alpine
+    container_name: rabbitmq_lms
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - spring-lms
 
 networks:
   spring-lms:

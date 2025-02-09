@@ -3,13 +3,26 @@ spring:
     url: jdbc:postgresql://localhost:5432/library_management_system_db
     username: username
     password: password
-
   jpa:
     hibernate:
       ddl-auto: update
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
 server:
   port: 8088
+
+rabbitmq:
+  exchange:
+    name: "email_exchange"
+  queue:
+    name: "queue_name"
+  routing-key: "email_routing_key"
 
