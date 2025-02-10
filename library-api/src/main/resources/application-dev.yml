@@ -9,12 +9,16 @@ spring:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
-
   rabbitmq:
     host: localhost
     port: 5672
     username: guest
     password: guest
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: "http://localhost:9090/realms/library-realm"
 
 server:
   port: 8088
@@ -26,3 +30,6 @@ rabbitmq:
     name: "queue_name"
   routing-key: "email_routing_key"
 
+application:
+  allowed:
+    origins: "http://localhost:3000"
