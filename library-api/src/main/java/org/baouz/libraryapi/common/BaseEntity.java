@@ -2,6 +2,7 @@ package org.baouz.libraryapi.common;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
+import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @SuperBuilder
+@MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public class BaseEntity {
 
