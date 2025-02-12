@@ -17,6 +17,7 @@ import java.util.Set;
 @Setter
 @SuperBuilder
 @Entity
+@Table(name = "books")
 //@DiscriminatorValue(value = "BOOK")
 public class Book extends Work {
     @Column(unique = true, nullable = false)

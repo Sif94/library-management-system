@@ -18,6 +18,7 @@ import java.util.Set;
 @Setter
 @SuperBuilder
 @Entity
+@Table(name = "theses")
 //@DiscriminatorValue(value = "THESIS")
 public class Thesis extends Work {
     @Column(nullable = false)

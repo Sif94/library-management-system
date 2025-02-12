@@ -15,6 +15,7 @@ import java.util.Set;
 @Setter
 @SuperBuilder
 @Entity
+@Table(name = "teachers")
 //@DiscriminatorValue(value = "TEACHER")
 public class Teacher extends Borrower {
     @Column(unique = true, nullable = false, name = "teacher_code")

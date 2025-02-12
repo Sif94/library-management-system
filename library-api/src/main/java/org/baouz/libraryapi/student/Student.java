@@ -13,6 +13,7 @@ import org.baouz.libraryapi.department.Department;
 @Setter
 @SuperBuilder
 @Entity
+@Table(name = "students")
 //@DiscriminatorValue(value = "STUDENT")
 public class Student extends Borrower{
     @Column(unique = true, nullable = false)
