@@ -23,6 +23,7 @@ public class Book extends Work {
     @Column(unique = true, nullable = false)
     private int isbn;
     private int year;
+    private String coverPicture;
 
 
 }
