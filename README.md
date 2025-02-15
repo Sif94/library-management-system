@@ -1,7 +1,7 @@
 # Library Management System
 
 ## Architecture
-![Architecture Diagram](resources/system_design.png)
+![Architecture Diagram](resources/Library-management-system-app-diagiram.jpg)
 
 ## Description
 
