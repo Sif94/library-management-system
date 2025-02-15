@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import org.baouz.libraryapi.common.BaseEntity;
+import org.baouz.libraryapi.department.Department;
+
+import java.util.Set;
 
 import static jakarta.persistence.GenerationType.UUID;
 
@@ -17,13 +20,7 @@ import static jakarta.persistence.GenerationType.UUID;
 @SuperBuilder
 @Entity
 @Table(
-        name = "faculties",
-        uniqueConstraints = {
-                @UniqueConstraint(
-                        name = "faculties_unique_constraint_faculty_name",
-                        columnNames = {"faculty_name"}
-                )
-        }
+        name = "FACULTIES"
 )
 public class Faculty extends BaseEntity {
     @Id @GeneratedValue(strategy = UUID)
@@ -31,4 +28,7 @@ public class Faculty extends BaseEntity {
     private String id;
     @Column(name = "faculty_name", nullable = false, unique = true)
     private String name;
+
+    @OneToMany
+    private Set<Department> departments;
 }

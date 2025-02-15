@@ -1,0 +1,35 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: "http://localhost:9090/realms/library-realm"
+  h2:
+    console:
+      enabled: true
+#jdbc:h2://mem:library;DB_CLOSE_DELAY=-1
+  datasource:
+    url: jdbc:h2:mem:library;NON_KEYWORDS=user
+    username: sa
+    password: sa
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    #database: h2
+    show-sql: true
+    #database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
+  flyway:
+    enabled: false
+rabbitmq:
+  exchange:
+    name: "email_exchange"
+  queue:
+    name: "queue_name"
+  routing-key: "email_routing_key"
+application:
+  allowed:
+    origins: "http://localhost:3000"

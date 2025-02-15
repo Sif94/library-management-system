@@ -23,6 +23,7 @@ import static jakarta.persistence.GenerationType.UUID;
 @Entity
 public class Borrower extends BaseEntity {
     @Id @GeneratedValue(strategy = UUID)
+    @Column(name = "borrower_id")
     private String id;
     @Column(nullable = false)
     private String firstName;

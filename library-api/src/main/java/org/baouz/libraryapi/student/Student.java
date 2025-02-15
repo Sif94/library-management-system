@@ -13,8 +13,9 @@ import org.baouz.libraryapi.department.Department;
 @Setter
 @SuperBuilder
 @Entity
-@Table(name = "students")
+@Table(name = "STUDENTS")
 //@DiscriminatorValue(value = "STUDENT")
+@PrimaryKeyJoinColumn(name = "student_id", referencedColumnName = "borrower_id")
 public class Student extends Borrower{
     @Column(unique = true, nullable = false)
     private String studentCode;

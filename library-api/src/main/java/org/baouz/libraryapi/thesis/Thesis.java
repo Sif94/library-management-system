@@ -18,8 +18,9 @@ import java.util.Set;
 @Setter
 @SuperBuilder
 @Entity
-@Table(name = "theses")
+@Table(name = "THESES")
 //@DiscriminatorValue(value = "THESIS")
+@PrimaryKeyJoinColumn(name = "these_id", referencedColumnName = "work_id")
 public class Thesis extends Work {
     @Column(nullable = false)
     private LocalDate dateOfGraduation;

@@ -20,8 +20,9 @@ import static jakarta.persistence.GenerationType.UUID;
 @Setter
 @SuperBuilder
 @Inheritance(strategy = InheritanceType.JOINED)
-//@DiscriminatorColumn(name = "work_type", discriminatorType = STRING)
+@DiscriminatorColumn(name = "work_type", discriminatorType = STRING)
 @Entity
+@Table(name = "WORKS")
 public class Work extends BaseEntity {
     @Id @GeneratedValue(strategy = UUID)
     @Column(name = "work_id")

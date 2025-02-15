@@ -20,7 +20,7 @@ import static jakarta.persistence.GenerationType.UUID;
 @SuperBuilder
 @Entity
 @Table(
-        name = "borrow_transactions"
+        name = "BORROW_TRANSACTIONS"
 )
 public class BorrowTransaction {
     @Id @GeneratedValue(strategy = UUID)

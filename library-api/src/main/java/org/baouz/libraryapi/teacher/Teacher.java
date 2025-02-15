@@ -15,8 +15,9 @@ import java.util.Set;
 @Setter
 @SuperBuilder
 @Entity
-@Table(name = "teachers")
+@Table(name = "TEACHERS")
 //@DiscriminatorValue(value = "TEACHER")
+@PrimaryKeyJoinColumn(name = "teacher_id", referencedColumnName = "borrower_id")
 public class Teacher extends Borrower {
     @Column(unique = true, nullable = false, name = "teacher_code")
     private String teacherCode;

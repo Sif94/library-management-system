@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import org.baouz.libraryapi.common.BaseEntity;
+import org.baouz.libraryapi.faculty.Faculty;
 import org.baouz.libraryapi.teacher.Teacher;
 
 import java.util.Set;
@@ -20,12 +21,7 @@ import static jakarta.persistence.GenerationType.UUID;
 @SuperBuilder
 @Entity
 @Table(
-        name = "departments",
-        uniqueConstraints = {
-                @UniqueConstraint(name = "departments_unique_constraint_name",
-                        columnNames = {"department_name"}
-                )
-        }
+        name = "DEPARTMENTS"
 )
 public class Department extends BaseEntity {
     @Id @GeneratedValue(strategy = UUID)
@@ -41,4 +37,7 @@ public class Department extends BaseEntity {
             inverseJoinColumns = @JoinColumn(name = "teacher_id")
     )
     private Set<Teacher> teachers;
+
+    @ManyToOne
+    private Faculty faculty;
 }
