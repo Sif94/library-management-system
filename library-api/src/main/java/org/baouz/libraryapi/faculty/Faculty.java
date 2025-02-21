@@ -28,7 +28,10 @@ public class Faculty extends BaseEntity {
     private String id;
     @Column(name = "faculty_name", nullable = false, unique = true)
     private String name;
+    @Column(name = "description", columnDefinition = "TEXT")
+    private String description;
 
-    @OneToMany
+    @OneToMany(mappedBy = "faculty")
     private Set<Department> departments;
+
 }

@@ -1,1 +1,0 @@
-ALTER TABLE works ADD COLUMN available boolean default true;

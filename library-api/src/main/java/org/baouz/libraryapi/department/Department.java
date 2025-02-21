@@ -40,5 +40,6 @@ public class Department extends BaseEntity {
     private Set<Teacher> teachers;
 
     @ManyToOne
+    @JoinColumn(name = "faculty_id")
     private Faculty faculty;
 }
