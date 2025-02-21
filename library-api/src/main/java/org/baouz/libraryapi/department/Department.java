@@ -29,6 +29,7 @@ public class Department extends BaseEntity {
     private String id;
     @Column(nullable = false, unique = true, name = "department_name")
     private String name;
+    private String description;
 
     @ManyToMany
     @JoinTable(

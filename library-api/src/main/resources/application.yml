@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: library-management-system
   servlet:
     multipart:
       max-file-size: 30MB

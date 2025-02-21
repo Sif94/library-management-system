@@ -15,6 +15,7 @@ public class BookMapper {
                 .isbn(book.getIsbn())
                 .year(book.getYear())
                 .coverPicture(book.getCoverPicture())
+                .available(book.isAvailable())
                 .build();
     }
 

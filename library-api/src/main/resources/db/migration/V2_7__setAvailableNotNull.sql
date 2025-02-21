@@ -1,0 +1,1 @@
+ALTER TABLE works ALTER COLUMN is_available SET NOT NULL;

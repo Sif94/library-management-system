@@ -1,0 +1,1 @@
+ALTER TABLE works RENAME COLUMN available TO is_available;

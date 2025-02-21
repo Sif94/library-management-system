@@ -30,6 +30,8 @@ public class Work extends BaseEntity {
     private String title;
     private String description;
     private String author;
+    @Column(name = "is_available")
+    private boolean available;
 
     @OneToMany(mappedBy = "work")
     private Set<BorrowTransaction> borrowTransactions;

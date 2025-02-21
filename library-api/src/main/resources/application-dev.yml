@@ -1,4 +1,12 @@
 spring:
+  cache:
+    type: redis
+    cache-names:
+      - books
+      - booksPages
+    redis:
+      time-to-live: 600000  # 10 minutes in milliseconds
+      cache-null-values: false
   datasource:
     url: jdbc:postgresql://localhost:5432/library_management_system_db
     username: username
@@ -34,6 +42,21 @@ rabbitmq:
     name: "queue_name"
   routing-key: "email_routing_key"
 
+
+# application.properties or application.yml
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+    enabled: true
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
+
+
 application:
+  file:
+    uploads:
+      photos-output-path: ./uploads
   allowed:
     origins: "http://localhost:3000"
