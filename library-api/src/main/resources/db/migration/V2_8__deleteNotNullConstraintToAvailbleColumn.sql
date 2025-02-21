@@ -1,1 +1,0 @@
-alter table works alter column is_available drop not null;

@@ -44,4 +44,38 @@ class BookRepositoryTest {
         assertThat(isbn).isEqualTo(savedBook.getIsbn());
     }
 
+    @Test
+    void itShouldCheckIfABookListIsReturnedForAGivenAuthor() {
+        // Arrange
+        Book book = Book.builder()
+                .isbn("111")
+                .title("Book Title")
+                .author("Author")
+                .description("Book Description")
+                .year(2021)
+                .createdBy("me")
+                .createdDate(LocalDateTime.now())
+                .build();
+        Book secondBook = Book.builder()
+                .isbn("222")
+                .title("Book Title 2")
+                .author("Author")
+                .description("Book Description")
+                .year(2021)
+                .createdBy("me")
+                .createdDate(LocalDateTime.now())
+                .build();
+        bookRepository.save(book);
+        bookRepository.save(secondBook);
+
+        // Act
+        List<Book> books = bookRepository.findByAuthor("Author");
+
+        // Assert
+
+        assertThat(books).isNotNull();
+        assertThat(books).hasSize(2);
+        assertThat(books.getFirst().getTitle()).isEqualTo("Book Title");
+        assertThat(books.get(1).getTitle()).isEqualTo("Book Title 2");
+    }
 }

@@ -7,6 +7,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.util.Optional;
+@EnableJpaAuditing(auditorAwareRef = "auditorAware")
 public class ApplicationAuditingAware implements AuditorAware<String> {
     @Override
     public Optional<String> getCurrentAuditor() {
