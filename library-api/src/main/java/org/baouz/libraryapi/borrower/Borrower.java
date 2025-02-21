@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import org.baouz.libraryapi.common.BaseEntity;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDate;
 
@@ -21,6 +22,8 @@ import static jakarta.persistence.GenerationType.UUID;
 @Inheritance(strategy = InheritanceType.JOINED)
 //@DiscriminatorColumn(name = "borrower_type", discriminatorType = DiscriminatorType.STRING)
 @Entity
+@Table(name = "BORROWERS")
+@EntityListeners(AuditingEntityListener.class)
 public class Borrower extends BaseEntity {
     @Id @GeneratedValue(strategy = UUID)
     @Column(name = "borrower_id")

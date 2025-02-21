@@ -1,5 +1,5 @@
 -- Borrower
-create table borrower
+create table borrowers
 (
     birthday           date,
     created_date       timestamp(6) not null,
@@ -24,7 +24,7 @@ create table borrower
     zip                varchar(255)
 );
 
-alter table borrower owner to username;
+alter table borrowers owner to username;
 
 
 -- Faculties
@@ -86,7 +86,7 @@ create table students
     student_code       varchar(255) not null
         constraint UQ_students_student_code unique,
     constraint PK_students primary key (student_id),
-    constraint FK_students_borrower foreign key (student_id) references borrower(borrower_id)
+    constraint FK_students_borrower foreign key (student_id) references borrowers(borrower_id)
 );
 
 alter table students owner to username;
@@ -100,7 +100,7 @@ create table teachers
     teacher_code   varchar(255) not null
         constraint UQ_teachers_teacher_code unique,
     constraint PK_teachers primary key (teacher_id),
-    constraint FK_teachers_borrower foreign key (teacher_id) references borrower(borrower_id)
+    constraint FK_teachers_borrower foreign key (teacher_id) references borrowers(borrower_id)
 );
 
 alter table teachers owner to username;
@@ -161,7 +161,7 @@ create table borrow_transactions
     borrower_id           varchar(255) not null,
     work_id               varchar(255) not null,
     constraint PK_borrow_transactions primary key (borrow_transaction_id),
-    constraint FK_borrow_transactions_borrower foreign key (borrower_id) references borrower(borrower_id),
+    constraint FK_borrow_transactions_borrower foreign key (borrower_id) references borrowers(borrower_id),
     constraint FK_borrow_transactions_works foreign key (work_id) references works(work_id)
 );
 
