@@ -5,9 +5,9 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: username
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: library_management_system_db
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
       PGDATA: /var/lib/postgresql/data
     volumes:
       - postgresql:/var/lib/postgresql/data
@@ -50,16 +50,12 @@ services:
     command:
       - "start-dev"
 
-  # Zipkin service
   zipkin:
     image: openzipkin/zipkin:latest
     ports:
       - "9411:9411"
     environment:
       - STORAGE_TYPE=mem
-      # Optional: Configure Elasticsearch storage
-      # - STORAGE_TYPE=elasticsearch
-      # - ES_HOSTS=elasticsearch:9200
     networks:
       - spring-lms
     healthcheck:
